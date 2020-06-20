@@ -1,0 +1,139 @@
+﻿@model Prueva_DE_SASS.Models.ClsParcialVideo
+
+@{
+    ViewBag.Title = "EditarVideo";
+}
+
+<h4>Editar  @Model.Nombre </h4>
+
+
+@using (Html.BeginForm("EditarVideo", "MantenimientoVideo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="container contenedorfromulario">
+            <hr />
+            <div class="tamanodeedicion">
+
+                @*//en esta linea del if mostramos nuestra imagen*@
+
+                @if (!string.IsNullOrEmpty(Model.Portada))
+                {
+                    <img src="@Url.Content(Model.Portada)" alt="imagen" />
+                }
+
+                @*aqui en el HiddenFor le desimos anuestro file upload que si la persona no cambia la imagen el imageload se mantendra *@
+                @Html.HiddenFor(model => model.Portada)
+
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Cod_Video)
+
+            <div class="ladoizquierdo">
+
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Artista, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Artista, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Artista, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr class="nad" />
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Duracion, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Duracion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Duracion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Fecha_Estreno, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fecha_Estreno, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fecha_Estreno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr class="nad" />
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label " })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.imagefile, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        <span class="btn btn-default btn-file">
+
+                            @Html.TextBoxFor(modelo => modelo.imagefile, new { Type = "file" })
+
+                        </span>
+
+                        @Html.ValidationMessageFor(model => model.imagefile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr class="nad" />
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Cod_Genero, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.Action("ListarGeneroVideo_Musica", "ListarGeneros")
+
+                        @Html.ValidationMessageFor(model => model.Cod_Genero, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group moverprimerlinea">
+                    @Html.LabelFor(model => model.Cod_Idioma, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.Action("listarIdiomaspeliculas", "ListarGeneros")
+                        @Html.ValidationMessageFor(model => model.Cod_Idioma, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr class="nad" />
+                <div class="form-group guardarEditar">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-default" />
+                    </div>
+                    <div class="guardarEditar">
+                        @Html.ActionLink("Atras", "IndexVideo")
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+}
+
+
+@section Scripts{
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+            $("#Cod_Genero").val('@Model.Cod_Genero');
+             $("#Cod_Idioma").val('@Model.Cod_Idioma');
+
+    </script>
+
+}

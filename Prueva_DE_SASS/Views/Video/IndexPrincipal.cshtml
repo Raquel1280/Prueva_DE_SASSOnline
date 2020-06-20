@@ -1,0 +1,29 @@
+﻿@*@model IEnumerable<Prueva_DE_SASS.Models.Videos>
+
+    @{
+        ViewBag.Title = "IndexPrincipal";
+    }
+    @Html.Partial("_VistaVideosParcial")
+
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class="separacionimagenes polaroid">
+
+
+            @if (!string.IsNullOrEmpty(item.Portada))
+            {
+                <img src="@Url.Content(item.Portada)" />
+                @Html.DisplayFor(modelItem => item.Nombre)
+                <div>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </div>
+            }
+
+
+        </div>
+    }*@
+
+@Html.Partial("_Imagenes_Videos")

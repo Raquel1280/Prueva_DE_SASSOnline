@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Prueva_DE_SASS.Models.GeneroPelicula>
+@*
+    NOTA
+    al select le colocamos un id con el mnombre de mi campo q hace la relacion entre las dos tablas en este caso es" Cod_Genero "
+    si no le ponemos el msmo nombre no nos reconocera y no nos listara los datos de la tabla GeneroPelicula
+*@
+<select class="form-control" id="Cod_Genero" name="Cod_Genero">
+
+    @foreach (var item in Model)
+    {
+        //usamos codogo raizor para listar todos los generos que estan alojados ne mi tabla GeneroPelicula
+        //tambien
+
+        //Nota  con el @item.Cod_Genero enviara el codigo y CON EL @item.Genero Nos mostrara el nombre
+        <option value="@item.Cod_Genero"> @item.Genero</option>
+
+    }
+
+
+</select>

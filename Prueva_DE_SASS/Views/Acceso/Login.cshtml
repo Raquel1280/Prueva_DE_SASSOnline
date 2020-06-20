@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Login.cshtml";
+}
+
+<h2>Login</h2>
+<h1 class="danger"> @ViewBag.Message</h1>
+<br />
+<div class="contenedorlogin">
+
+    @*<div class="row">*@
+
+        <form action="@Url.Content("~/Acceso/Login")" method="post" >
+
+
+
+            <div class="form-group">
+
+                <label>Usuario </label>
+                <input type="email" name="User" />
+            </div>
+            <div class="form-group">
+
+                <label>Contraseña</label>
+                <input type="password" name="pass" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entrar" class="btn btn-success" />
+            </div>
+
+
+        </form>
+    @*</div>*@
+
+</div>

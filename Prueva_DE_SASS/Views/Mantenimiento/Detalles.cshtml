@@ -1,0 +1,100 @@
+﻿@model Prueva_DE_SASS.Models.Peliculas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+<h2>Detalles</h2>
+<h4>Peliculas</h4>
+<hr />
+<dl class="dl-horizontal container">
+    <dt>
+        Titulo
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Nombre)
+    </dd>
+
+    <dt>
+        Actores
+    </dt>
+
+    <dd>
+        <div class="panel panel-default">
+
+            @Html.DisplayFor(model => model.Actores)
+        </div>
+    </dd>
+   
+    <dt>
+        Director
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Director)
+
+    </dd>
+  
+    <dt>
+        Descripción
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Descripcion)
+    </dd>
+
+
+    <dd>
+
+        <table class="table">
+
+
+            <tr>
+                <th>Tiempo de duracion </th>
+                <th>Precio de alquiler </th>
+                <th>Fecha en que se estreno </th>
+                <th>Imagen </th>
+                <th> Genero </th>
+                <th>Idioma</th>
+
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Duracion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Precio)
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Fecha_Estreno)
+                </td>
+                <td>
+                    <div class="tamano">
+                        @if (!string.IsNullOrEmpty(Model.Portada))
+                        {
+                            <img src="@Url.Content(Model.Portada)" alt="imagen" />
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Prueva_DE_SASS.Clase.Class1.mostrargenero(Model.Cod_Genero)
+                </td>
+                <td>
+
+                    @Prueva_DE_SASS.Clase.Class1.mostraridioma(Model.Cod_Idioma)
+
+                </td>
+
+            </tr>
+
+        </table>
+    </dd>
+</dl>
+<hr />
+<p>
+    @Html.ActionLink("Editar", "Editar", new { Cod_Pelicula = Model.Cod_Pelicula })
+    @Html.ActionLink("Atras", "Index")
+</p>

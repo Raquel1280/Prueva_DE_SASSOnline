@@ -1,0 +1,1221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Servicio_OnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dias_A_Rentar">
+          <Key>
+            <PropertyRef Name="Cod_Dias" />
+          </Key>
+          <Property Name="Cod_Dias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cantidad_D_Dias" Type="int" Nullable="false" />
+          <Property Name="Precio_por_Dias" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Forma_D_Pago">
+          <Key>
+            <PropertyRef Name="Cod_Pago" />
+          </Key>
+          <Property Name="Cod_Pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pago" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genero_Vid_Music">
+          <Key>
+            <PropertyRef Name="Cod_Genero" />
+          </Key>
+          <Property Name="Cod_Genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneroPelicula">
+          <Key>
+            <PropertyRef Name="Cod_Genero" />
+          </Key>
+          <Property Name="Cod_Genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Cod_Idioma" />
+          </Key>
+          <Property Name="Cod_Idioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idioma" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Cod_Modulo" />
+          </Key>
+          <Property Name="Cod_Modulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Modulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Musica">
+          <Key>
+            <PropertyRef Name="Cod_Musica" />
+          </Key>
+          <Property Name="Cod_Musica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Artista" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Duracion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Portada" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cod_Genero" Type="int" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Operaciones">
+          <Key>
+            <PropertyRef Name="Cod_Operaciones" />
+          </Key>
+          <Property Name="Cod_Operaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Operacion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cod_Modulo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Peliculas">
+          <Key>
+            <PropertyRef Name="Cod_Pelicula" />
+          </Key>
+          <Property Name="Cod_Pelicula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Actores" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Director" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="900" Nullable="false" />
+          <Property Name="Duracion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Portada" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cod_Genero" Type="int" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Musica">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Musica" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Musica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod_Musica" Type="int" Nullable="false" />
+          <Property Name="Cod_Usuario" Type="int" Nullable="false" />
+          <Property Name="Cod_Dias" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Peliculas">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Peliculas" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Peliculas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod_Usuario" Type="int" Nullable="false" />
+          <Property Name="Cod_Pelicula" Type="int" Nullable="false" />
+          <Property Name="Cod_Dias" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Videos">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Videos" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Videos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod_Video" Type="int" Nullable="false" />
+          <Property Name="Cod_Usuario" Type="int" Nullable="false" />
+          <Property Name="Cod_Dias" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Cod_Rol" />
+          </Key>
+          <Property Name="Cod_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol_Operaciones">
+          <Key>
+            <PropertyRef Name="Cod_Rol_Operaciones" />
+          </Key>
+          <Property Name="Cod_Rol_Operaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod_Rol" Type="int" Nullable="false" />
+          <Property Name="Cod_Operaciones" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Cod_Usuario" />
+          </Key>
+          <Property Name="Cod_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasena" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cod_Pago" Type="int" Nullable="false" />
+          <Property Name="Cod_Rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Cod_Video" />
+          </Key>
+          <Property Name="Cod_Video" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Artista" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Duracion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Portada" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cod_Genero" Type="int" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_diasrenta">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_diasrenta1">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_diasrenta2">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forma_D_Pago">
+          <End Role="Forma_D_Pago" Type="Self.Forma_D_Pago" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forma_D_Pago">
+              <PropertyRef Name="Cod_Pago" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cod_Pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Genero_Vid_Music2">
+          <End Role="Genero_Vid_Music" Type="Self.Genero_Vid_Music" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero_Vid_Music">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Genero_Vid_Music3">
+          <End Role="Genero_Vid_Music" Type="Self.Genero_Vid_Music" Multiplicity="1" />
+          <End Role="Musica" Type="Self.Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero_Vid_Music">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Musica">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_GeneroPelicula">
+          <End Role="GeneroPelicula" Type="Self.GeneroPelicula" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GeneroPelicula">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma2">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma3">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Musica" Type="Self.Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Musica">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Cod_Modulo" />
+            </Principal>
+            <Dependent Role="Operaciones">
+              <PropertyRef Name="Cod_Modulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_music1">
+          <End Role="Musica" Type="Self.Musica" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musica">
+              <PropertyRef Name="Cod_Musica" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Musica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Operaciones">
+          <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="1" />
+          <End Role="Rol_Operaciones" Type="Self.Rol_Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operaciones">
+              <PropertyRef Name="Cod_Operaciones" />
+            </Principal>
+            <Dependent Role="Rol_Operaciones">
+              <PropertyRef Name="Cod_Operaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_peli3">
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Peliculas">
+              <PropertyRef Name="Cod_Pelicula" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Cod_Rol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cod_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rool">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Rol_Operaciones" Type="Self.Rol_Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Cod_Rol" />
+            </Principal>
+            <Dependent Role="Rol_Operaciones">
+              <PropertyRef Name="Cod_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu2">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_video2">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Cod_Video" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Video" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Servicio_OnlineModelStoreContainer">
+          <EntitySet Name="Dias_A_Rentar" EntityType="Self.Dias_A_Rentar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forma_D_Pago" EntityType="Self.Forma_D_Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genero_Vid_Music" EntityType="Self.Genero_Vid_Music" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeneroPelicula" EntityType="Self.GeneroPelicula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musica" EntityType="Self.Musica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operaciones" EntityType="Self.Operaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Peliculas" EntityType="Self.Peliculas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renta_Usuario_Musica" EntityType="Self.Renta_Usuario_Musica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renta_Usuario_Peliculas" EntityType="Self.Renta_Usuario_Peliculas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renta_Usuario_Videos" EntityType="Self.Renta_Usuario_Videos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol_Operaciones" EntityType="Self.Rol_Operaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_diasrenta" Association="Self.fk_diasrenta">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_diasrenta1" Association="Self.fk_diasrenta1">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_diasrenta2" Association="Self.fk_diasrenta2">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forma_D_Pago" Association="Self.FK_Forma_D_Pago">
+            <End Role="Forma_D_Pago" EntitySet="Forma_D_Pago" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Genero_Vid_Music2" Association="Self.fk_Genero_Vid_Music2">
+            <End Role="Genero_Vid_Music" EntitySet="Genero_Vid_Music" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Genero_Vid_Music3" Association="Self.fk_Genero_Vid_Music3">
+            <End Role="Genero_Vid_Music" EntitySet="Genero_Vid_Music" />
+            <End Role="Musica" EntitySet="Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_GeneroPelicula" Association="Self.fk_GeneroPelicula">
+            <End Role="GeneroPelicula" EntitySet="GeneroPelicula" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma" Association="Self.fk_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma2" Association="Self.fk_Idioma2">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma3" Association="Self.fk_Idioma3">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Musica" EntitySet="Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Modulo" Association="Self.fk_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Operaciones" EntitySet="Operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_music1" Association="Self.fk_music1">
+            <End Role="Musica" EntitySet="Musica" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Operaciones" Association="Self.fk_Operaciones">
+            <End Role="Operaciones" EntitySet="Operaciones" />
+            <End Role="Rol_Operaciones" EntitySet="Rol_Operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_peli3" Association="Self.fk_peli3">
+            <End Role="Peliculas" EntitySet="Peliculas" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol" Association="Self.FK_rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rool" Association="Self.fk_rool">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Rol_Operaciones" EntitySet="Rol_Operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu1" Association="Self.fk_usu1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu2" Association="Self.fk_usu2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu3" Association="Self.fk_usu3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_video2" Association="Self.fk_video2">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Servicio_OnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dias_A_Rentar">
+          <Key>
+            <PropertyRef Name="Cod_Dias" />
+          </Key>
+          <Property Name="Cod_Dias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cantidad_D_Dias" Type="Int32" Nullable="false" />
+          <Property Name="Precio_por_Dias" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Renta_Usuario_Musica" Relationship="Self.fk_diasrenta" FromRole="Dias_A_Rentar" ToRole="Renta_Usuario_Musica" />
+          <NavigationProperty Name="Renta_Usuario_Videos" Relationship="Self.fk_diasrenta1" FromRole="Dias_A_Rentar" ToRole="Renta_Usuario_Videos" />
+          <NavigationProperty Name="Renta_Usuario_Peliculas" Relationship="Self.fk_diasrenta2" FromRole="Dias_A_Rentar" ToRole="Renta_Usuario_Peliculas" />
+        </EntityType>
+        <EntityType Name="Forma_D_Pago">
+          <Key>
+            <PropertyRef Name="Cod_Pago" />
+          </Key>
+          <Property Name="Cod_Pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pago" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Forma_D_Pago" FromRole="Forma_D_Pago" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Genero_Vid_Music">
+          <Key>
+            <PropertyRef Name="Cod_Genero" />
+          </Key>
+          <Property Name="Cod_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Videos" Relationship="Self.fk_Genero_Vid_Music2" FromRole="Genero_Vid_Music" ToRole="Videos" />
+          <NavigationProperty Name="Musica" Relationship="Self.fk_Genero_Vid_Music3" FromRole="Genero_Vid_Music" ToRole="Musica" />
+        </EntityType>
+        <EntityType Name="GeneroPelicula">
+          <Key>
+            <PropertyRef Name="Cod_Genero" />
+          </Key>
+          <Property Name="Cod_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Peliculas" Relationship="Self.fk_GeneroPelicula" FromRole="GeneroPelicula" ToRole="Peliculas" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Cod_Idioma" />
+          </Key>
+          <Property Name="Cod_Idioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idioma1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Peliculas" Relationship="Self.fk_Idioma" FromRole="Idioma" ToRole="Peliculas" />
+          <NavigationProperty Name="Videos" Relationship="Self.fk_Idioma2" FromRole="Idioma" ToRole="Videos" />
+          <NavigationProperty Name="Musica" Relationship="Self.fk_Idioma3" FromRole="Idioma" ToRole="Musica" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Cod_Modulo" />
+          </Key>
+          <Property Name="Cod_Modulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Modulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Operaciones" Relationship="Self.fk_Modulo" FromRole="Modulo" ToRole="Operaciones" />
+        </EntityType>
+        <EntityType Name="Musica">
+          <Key>
+            <PropertyRef Name="Cod_Musica" />
+          </Key>
+          <Property Name="Cod_Musica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artista" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Duracion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cod_Genero" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genero_Vid_Music" Relationship="Self.fk_Genero_Vid_Music3" FromRole="Musica" ToRole="Genero_Vid_Music" />
+          <NavigationProperty Name="Idioma" Relationship="Self.fk_Idioma3" FromRole="Musica" ToRole="Idioma" />
+          <NavigationProperty Name="Renta_Usuario_Musica" Relationship="Self.fk_music1" FromRole="Musica" ToRole="Renta_Usuario_Musica" />
+        </EntityType>
+        <EntityType Name="Operaciones">
+          <Key>
+            <PropertyRef Name="Cod_Operaciones" />
+          </Key>
+          <Property Name="Cod_Operaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Operacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cod_Modulo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="Self.fk_Modulo" FromRole="Operaciones" ToRole="Modulo" />
+          <NavigationProperty Name="Rol_Operaciones" Relationship="Self.fk_Operaciones" FromRole="Operaciones" ToRole="Rol_Operaciones" />
+        </EntityType>
+        <EntityType Name="Peliculas">
+          <Key>
+            <PropertyRef Name="Cod_Pelicula" />
+          </Key>
+          <Property Name="Cod_Pelicula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actores" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Duracion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cod_Genero" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GeneroPelicula" Relationship="Self.fk_GeneroPelicula" FromRole="Peliculas" ToRole="GeneroPelicula" />
+          <NavigationProperty Name="Idioma" Relationship="Self.fk_Idioma" FromRole="Peliculas" ToRole="Idioma" />
+          <NavigationProperty Name="Renta_Usuario_Peliculas" Relationship="Self.fk_peli3" FromRole="Peliculas" ToRole="Renta_Usuario_Peliculas" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Musica">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Musica" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Musica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_Musica" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Dias" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dias_A_Rentar" Relationship="Self.fk_diasrenta" FromRole="Renta_Usuario_Musica" ToRole="Dias_A_Rentar" />
+          <NavigationProperty Name="Musica" Relationship="Self.fk_music1" FromRole="Renta_Usuario_Musica" ToRole="Musica" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.fk_usu1" FromRole="Renta_Usuario_Musica" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Peliculas">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Peliculas" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Peliculas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Pelicula" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Dias" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dias_A_Rentar" Relationship="Self.fk_diasrenta2" FromRole="Renta_Usuario_Peliculas" ToRole="Dias_A_Rentar" />
+          <NavigationProperty Name="Peliculas" Relationship="Self.fk_peli3" FromRole="Renta_Usuario_Peliculas" ToRole="Peliculas" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.fk_usu3" FromRole="Renta_Usuario_Peliculas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Renta_Usuario_Videos">
+          <Key>
+            <PropertyRef Name="Cod_Renta_Usuario_Videos" />
+          </Key>
+          <Property Name="Cod_Renta_Usuario_Videos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_Video" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Dias" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dias_A_Rentar" Relationship="Self.fk_diasrenta1" FromRole="Renta_Usuario_Videos" ToRole="Dias_A_Rentar" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.fk_usu2" FromRole="Renta_Usuario_Videos" ToRole="Usuarios" />
+          <NavigationProperty Name="Videos" Relationship="Self.fk_video2" FromRole="Renta_Usuario_Videos" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Cod_Rol" />
+          </Key>
+          <Property Name="Cod_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_rol" FromRole="Rol" ToRole="Usuarios" />
+          <NavigationProperty Name="Rol_Operaciones" Relationship="Self.fk_rool" FromRole="Rol" ToRole="Rol_Operaciones" />
+        </EntityType>
+        <EntityType Name="Rol_Operaciones">
+          <Key>
+            <PropertyRef Name="Cod_Rol_Operaciones" />
+          </Key>
+          <Property Name="Cod_Rol_Operaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Operaciones" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Operaciones" Relationship="Self.fk_Operaciones" FromRole="Rol_Operaciones" ToRole="Operaciones" />
+          <NavigationProperty Name="Rol" Relationship="Self.fk_rool" FromRole="Rol_Operaciones" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Cod_Usuario" />
+          </Key>
+          <Property Name="Cod_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cod_Pago" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Forma_D_Pago" Relationship="Self.FK_Forma_D_Pago" FromRole="Usuarios" ToRole="Forma_D_Pago" />
+          <NavigationProperty Name="Renta_Usuario_Musica" Relationship="Self.fk_usu1" FromRole="Usuarios" ToRole="Renta_Usuario_Musica" />
+          <NavigationProperty Name="Renta_Usuario_Peliculas" Relationship="Self.fk_usu3" FromRole="Usuarios" ToRole="Renta_Usuario_Peliculas" />
+          <NavigationProperty Name="Renta_Usuario_Videos" Relationship="Self.fk_usu2" FromRole="Usuarios" ToRole="Renta_Usuario_Videos" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_rol" FromRole="Usuarios" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Cod_Video" />
+          </Key>
+          <Property Name="Cod_Video" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artista" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Duracion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Estreno" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cod_Genero" Type="Int32" Nullable="false" />
+          <Property Name="Cod_Idioma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genero_Vid_Music" Relationship="Self.fk_Genero_Vid_Music2" FromRole="Videos" ToRole="Genero_Vid_Music" />
+          <NavigationProperty Name="Idioma" Relationship="Self.fk_Idioma2" FromRole="Videos" ToRole="Idioma" />
+          <NavigationProperty Name="Renta_Usuario_Videos" Relationship="Self.fk_video2" FromRole="Videos" ToRole="Renta_Usuario_Videos" />
+        </EntityType>
+        <Association Name="fk_diasrenta">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_diasrenta1">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_diasrenta2">
+          <End Role="Dias_A_Rentar" Type="Self.Dias_A_Rentar" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias_A_Rentar">
+              <PropertyRef Name="Cod_Dias" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Dias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forma_D_Pago">
+          <End Role="Forma_D_Pago" Type="Self.Forma_D_Pago" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forma_D_Pago">
+              <PropertyRef Name="Cod_Pago" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cod_Pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Genero_Vid_Music2">
+          <End Role="Genero_Vid_Music" Type="Self.Genero_Vid_Music" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero_Vid_Music">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Genero_Vid_Music3">
+          <End Role="Genero_Vid_Music" Type="Self.Genero_Vid_Music" Multiplicity="1" />
+          <End Role="Musica" Type="Self.Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genero_Vid_Music">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Musica">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_GeneroPelicula">
+          <End Role="GeneroPelicula" Type="Self.GeneroPelicula" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GeneroPelicula">
+              <PropertyRef Name="Cod_Genero" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="Cod_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma2">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Idioma3">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="Musica" Type="Self.Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Cod_Idioma" />
+            </Principal>
+            <Dependent Role="Musica">
+              <PropertyRef Name="Cod_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Modulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Cod_Modulo" />
+            </Principal>
+            <Dependent Role="Operaciones">
+              <PropertyRef Name="Cod_Modulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_music1">
+          <End Role="Musica" Type="Self.Musica" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musica">
+              <PropertyRef Name="Cod_Musica" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Musica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Operaciones">
+          <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="1" />
+          <End Role="Rol_Operaciones" Type="Self.Rol_Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operaciones">
+              <PropertyRef Name="Cod_Operaciones" />
+            </Principal>
+            <Dependent Role="Rol_Operaciones">
+              <PropertyRef Name="Cod_Operaciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_peli3">
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Peliculas">
+              <PropertyRef Name="Cod_Pelicula" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Pelicula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Musica" Type="Self.Renta_Usuario_Musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Musica">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu3">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Peliculas" Type="Self.Renta_Usuario_Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Peliculas">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usu2">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Cod_Usuario" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_video2">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Renta_Usuario_Videos" Type="Self.Renta_Usuario_Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Cod_Video" />
+            </Principal>
+            <Dependent Role="Renta_Usuario_Videos">
+              <PropertyRef Name="Cod_Video" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Cod_Rol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Cod_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rool">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Rol_Operaciones" Type="Self.Rol_Operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Cod_Rol" />
+            </Principal>
+            <Dependent Role="Rol_Operaciones">
+              <PropertyRef Name="Cod_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Servicio_OnlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dias_A_Rentar" EntityType="Self.Dias_A_Rentar" />
+          <EntitySet Name="Forma_D_Pago" EntityType="Self.Forma_D_Pago" />
+          <EntitySet Name="Genero_Vid_Music" EntityType="Self.Genero_Vid_Music" />
+          <EntitySet Name="GeneroPelicula" EntityType="Self.GeneroPelicula" />
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+          <EntitySet Name="Musica" EntityType="Self.Musica" />
+          <EntitySet Name="Operaciones" EntityType="Self.Operaciones" />
+          <EntitySet Name="Peliculas" EntityType="Self.Peliculas" />
+          <EntitySet Name="Renta_Usuario_Musica" EntityType="Self.Renta_Usuario_Musica" />
+          <EntitySet Name="Renta_Usuario_Peliculas" EntityType="Self.Renta_Usuario_Peliculas" />
+          <EntitySet Name="Renta_Usuario_Videos" EntityType="Self.Renta_Usuario_Videos" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Rol_Operaciones" EntityType="Self.Rol_Operaciones" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" />
+          <AssociationSet Name="fk_diasrenta" Association="Self.fk_diasrenta">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_diasrenta1" Association="Self.fk_diasrenta1">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_diasrenta2" Association="Self.fk_diasrenta2">
+            <End Role="Dias_A_Rentar" EntitySet="Dias_A_Rentar" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forma_D_Pago" Association="Self.FK_Forma_D_Pago">
+            <End Role="Forma_D_Pago" EntitySet="Forma_D_Pago" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Genero_Vid_Music2" Association="Self.fk_Genero_Vid_Music2">
+            <End Role="Genero_Vid_Music" EntitySet="Genero_Vid_Music" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Genero_Vid_Music3" Association="Self.fk_Genero_Vid_Music3">
+            <End Role="Genero_Vid_Music" EntitySet="Genero_Vid_Music" />
+            <End Role="Musica" EntitySet="Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_GeneroPelicula" Association="Self.fk_GeneroPelicula">
+            <End Role="GeneroPelicula" EntitySet="GeneroPelicula" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma" Association="Self.fk_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma2" Association="Self.fk_Idioma2">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Idioma3" Association="Self.fk_Idioma3">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Musica" EntitySet="Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Modulo" Association="Self.fk_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Operaciones" EntitySet="Operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_music1" Association="Self.fk_music1">
+            <End Role="Musica" EntitySet="Musica" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Operaciones" Association="Self.fk_Operaciones">
+            <End Role="Operaciones" EntitySet="Operaciones" />
+            <End Role="Rol_Operaciones" EntitySet="Rol_Operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_peli3" Association="Self.fk_peli3">
+            <End Role="Peliculas" EntitySet="Peliculas" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu1" Association="Self.fk_usu1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Musica" EntitySet="Renta_Usuario_Musica" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu3" Association="Self.fk_usu3">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Peliculas" EntitySet="Renta_Usuario_Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usu2" Association="Self.fk_usu2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_video2" Association="Self.fk_video2">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Renta_Usuario_Videos" EntitySet="Renta_Usuario_Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol" Association="Self.FK_rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rool" Association="Self.fk_rool">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Rol_Operaciones" EntitySet="Rol_Operaciones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Servicio_OnlineModelStoreContainer" CdmEntityContainer="Servicio_OnlineEntities">
+          <EntitySetMapping Name="Dias_A_Rentar">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Dias_A_Rentar">
+              <MappingFragment StoreEntitySet="Dias_A_Rentar">
+                <ScalarProperty Name="Cod_Dias" ColumnName="Cod_Dias" />
+                <ScalarProperty Name="Cantidad_D_Dias" ColumnName="Cantidad_D_Dias" />
+                <ScalarProperty Name="Precio_por_Dias" ColumnName="Precio_por_Dias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forma_D_Pago">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Forma_D_Pago">
+              <MappingFragment StoreEntitySet="Forma_D_Pago">
+                <ScalarProperty Name="Cod_Pago" ColumnName="Cod_Pago" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genero_Vid_Music">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Genero_Vid_Music">
+              <MappingFragment StoreEntitySet="Genero_Vid_Music">
+                <ScalarProperty Name="Cod_Genero" ColumnName="Cod_Genero" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeneroPelicula">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.GeneroPelicula">
+              <MappingFragment StoreEntitySet="GeneroPelicula">
+                <ScalarProperty Name="Cod_Genero" ColumnName="Cod_Genero" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idioma">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Idioma">
+              <MappingFragment StoreEntitySet="Idioma">
+                <ScalarProperty Name="Cod_Idioma" ColumnName="Cod_Idioma" />
+                <ScalarProperty Name="Idioma1" ColumnName="Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="Cod_Modulo" ColumnName="Cod_Modulo" />
+                <ScalarProperty Name="Nombre_Modulo" ColumnName="Nombre_Modulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musica">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Musica">
+              <MappingFragment StoreEntitySet="Musica">
+                <ScalarProperty Name="Cod_Musica" ColumnName="Cod_Musica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Fecha_Estreno" ColumnName="Fecha_Estreno" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+                <ScalarProperty Name="Cod_Genero" ColumnName="Cod_Genero" />
+                <ScalarProperty Name="Cod_Idioma" ColumnName="Cod_Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operaciones">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Operaciones">
+              <MappingFragment StoreEntitySet="Operaciones">
+                <ScalarProperty Name="Cod_Operaciones" ColumnName="Cod_Operaciones" />
+                <ScalarProperty Name="Nombre_Operacion" ColumnName="Nombre_Operacion" />
+                <ScalarProperty Name="Cod_Modulo" ColumnName="Cod_Modulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Peliculas">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Peliculas">
+              <MappingFragment StoreEntitySet="Peliculas">
+                <ScalarProperty Name="Cod_Pelicula" ColumnName="Cod_Pelicula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Actores" ColumnName="Actores" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Fecha_Estreno" ColumnName="Fecha_Estreno" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+                <ScalarProperty Name="Cod_Genero" ColumnName="Cod_Genero" />
+                <ScalarProperty Name="Cod_Idioma" ColumnName="Cod_Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renta_Usuario_Musica">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Renta_Usuario_Musica">
+              <MappingFragment StoreEntitySet="Renta_Usuario_Musica">
+                <ScalarProperty Name="Cod_Renta_Usuario_Musica" ColumnName="Cod_Renta_Usuario_Musica" />
+                <ScalarProperty Name="Cod_Musica" ColumnName="Cod_Musica" />
+                <ScalarProperty Name="Cod_Usuario" ColumnName="Cod_Usuario" />
+                <ScalarProperty Name="Cod_Dias" ColumnName="Cod_Dias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renta_Usuario_Peliculas">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Renta_Usuario_Peliculas">
+              <MappingFragment StoreEntitySet="Renta_Usuario_Peliculas">
+                <ScalarProperty Name="Cod_Renta_Usuario_Peliculas" ColumnName="Cod_Renta_Usuario_Peliculas" />
+                <ScalarProperty Name="Cod_Usuario" ColumnName="Cod_Usuario" />
+                <ScalarProperty Name="Cod_Pelicula" ColumnName="Cod_Pelicula" />
+                <ScalarProperty Name="Cod_Dias" ColumnName="Cod_Dias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renta_Usuario_Videos">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Renta_Usuario_Videos">
+              <MappingFragment StoreEntitySet="Renta_Usuario_Videos">
+                <ScalarProperty Name="Cod_Renta_Usuario_Videos" ColumnName="Cod_Renta_Usuario_Videos" />
+                <ScalarProperty Name="Cod_Video" ColumnName="Cod_Video" />
+                <ScalarProperty Name="Cod_Usuario" ColumnName="Cod_Usuario" />
+                <ScalarProperty Name="Cod_Dias" ColumnName="Cod_Dias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Cod_Rol" ColumnName="Cod_Rol" />
+                <ScalarProperty Name="Rol1" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol_Operaciones">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Rol_Operaciones">
+              <MappingFragment StoreEntitySet="Rol_Operaciones">
+                <ScalarProperty Name="Cod_Rol_Operaciones" ColumnName="Cod_Rol_Operaciones" />
+                <ScalarProperty Name="Cod_Rol" ColumnName="Cod_Rol" />
+                <ScalarProperty Name="Cod_Operaciones" ColumnName="Cod_Operaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Cod_Usuario" ColumnName="Cod_Usuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Cod_Pago" ColumnName="Cod_Pago" />
+                <ScalarProperty Name="Cod_Rol" ColumnName="Cod_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="Servicio_OnlineModel.Videos">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="Cod_Video" ColumnName="Cod_Video" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Fecha_Estreno" ColumnName="Fecha_Estreno" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+                <ScalarProperty Name="Cod_Genero" ColumnName="Cod_Genero" />
+                <ScalarProperty Name="Cod_Idioma" ColumnName="Cod_Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

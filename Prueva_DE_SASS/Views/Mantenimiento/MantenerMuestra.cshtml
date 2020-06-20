@@ -1,0 +1,158 @@
+﻿@model IEnumerable<Prueva_DE_SASS.Models.ClsParcialPelicula>
+
+@*le cambiamos de Peliculas a ClsParcialPelicula para poder relacionar las tablas idioma ygenero lo cualno permitira mostrar los nombre de cada idioma y no el id*@
+@{
+
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Añadir", "Ingresar")
+
+
+        @using (Html.BeginForm("Buscador", "Mantenimiento", FormMethod.Get))
+        {
+
+            @Html.TextBox("searching")
+            <input type="submit" value="Buscar" />
+        }
+
+    </p>
+
+<div class="cajadelatabla">
+
+        <table class="table">
+            <tr>
+                <th>
+                    Codigo
+                </th>
+                <th>
+                    Titulo
+                </th>
+                @*<th>
+                        Actores
+                    </th>*@
+                <th>
+                    Director
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Duracion/Min
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Fecha De Estreno
+                </th>
+                <th>
+                    Portada
+                </th>
+                <th>
+                    Genero
+                </th>
+                <th>
+                    Idioma
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cod_Pelicula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    @*<td>
+                                @Html.DisplayFor(modelItem => item.Actores)
+
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Director)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duracion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_Estreno)
+                    </td>
+                    <td>
+                        <div class="tamano">
+                            @if (!string.IsNullOrEmpty(item.Portada))
+                            {
+                                <img src="@Url.Content(item.Portada)" alt="imagen" />
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Cod_Genero)*@
+
+                        @item.NombreGeneropelicula
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Cod_Idioma)*@
+                        @item.NombreIdiomapelicula
+
+                        @*@MVC_Base_de_Datos.Controllers.AlumnoController.nombreciudad(Model.idciudad)
+
+                        @Prueva_DE_SASS.Clase.Class1.mostraridioma(Model.)*@
+
+                    </td>
+                    <td>
+                        <div class="botonesabajo">
+
+                            <div class="botonesabajo">
+
+                                @Html.ActionLink("Editar", "Editar", new { Cod_Pelicula = item.Cod_Pelicula }, new { @class = "btn btn-success miboton" })
+                            </div>
+                            <div class="botonesabajo">
+
+                                @Html.ActionLink("Detalles", "Detalles", new { Cod_Pelicula = item.Cod_Pelicula }, new { @class = "btn btn-info " })
+                            </div>
+                            <div class="botonesabajo">
+                                @Html.ActionLink("Eliminar", "Eliminar", new { Cod_Pelicula = item.Cod_Pelicula }, new { @class = "btn btn-danger aEliminar" })
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                </tr>
+
+
+            }
+        </table>
+
+    </div>
+
+
+
+
+    @section Scripts{
+
+        <script>
+            $(".aEliminar").click(function (Event) {
+                if (!confirm('Esta seguro de eliminar el registro?')) {
+
+                    event.preventDefault();
+                }
+            });
+        </script>
+    }

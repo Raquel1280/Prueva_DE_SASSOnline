@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Prueva_DE_SASS.Models.Peliculas>
+<br />
+@Html.Partial("_VistaPeliculasParcila")
+<h4>@ViewBag.Message </h4>
+<br />
+@foreach (var item in Model)
+{
+
+
+    <div class="separacionimagenes polaroid">
+
+
+        @if (!string.IsNullOrEmpty(item.Portada))
+        {
+            <img src="@Url.Content(item.Portada)" />
+        }
+
+        @Html.DisplayFor(modelItem => item.Nombre)
+
+            <div>
+                @Html.ActionLink("$" + Html.DisplayFor(modelItem => item.Precio), "DetallePeliculas", new { Cod_Pelicula = item.Cod_Pelicula }, new { @class = "cajaparaprecioaaa" })
+          
+            </div>
+
+       
+    </div>
+}

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Prueva_DE_SASS.Models.Idioma>
+
+
+    <select class="form-control" id="Cod_Idioma" name="Cod_Idioma">
+
+        @foreach (var item in Model)
+        {
+
+            <option value="@item.Cod_Idioma"> @item.Idioma1</option>
+
+        }
+
+    </select>
+    
+
+

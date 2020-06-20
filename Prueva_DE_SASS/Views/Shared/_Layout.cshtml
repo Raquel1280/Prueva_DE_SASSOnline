@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Online</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/jquery.nivo.slider.js")
+    @Scripts.Render("~/bundles/jquery-3.3.1.min.js")
+
+    @*@Scripts.Render("~/bundles/jquery-3.5.min.js")
+    @Scripts.Render("~/bundles/main.js")
+    @Scripts.Render("~/bundles/skel.min.js")
+    @Scripts.Render("~/bundles/util.js")*@
+
+    <script src="~/Scripts/Js_Menu/jquery-3.5.min.js"></script>
+    <script src="~/Scripts/Js_Menu/main.js"></script>
+    <script src="~/Scripts/Js_Menu/skel.min.js"></script>
+    <script src="~/Scripts/Js_Menu/util.js"></script>
+
+</head>
+<body>
+
+
+    <header id="header">
+        <div id="container logo-nav-container">
+            <a href="#" id="logo">
+                <h6>
+                    <span>M</span>
+                    <span>A</span>
+                    <span>X</span>
+                    <span>P</span>
+                    <span>R</span>
+                    <span>I</span>
+                    <span>M</span>
+                    <span>E</span>
+                </h6>
+            </a>
+            <nav id="navigation">
+                <ul>
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Musica", "IndexPrincipal", "Musica")</li>
+                    <li>@Html.ActionLink("Videos", "IndexPrincipal", "Video")</li>
+                    <li>@Html.ActionLink("Películas", "IndexPrincipal", "Peliculas")</li>
+                    <li>@Html.ActionLink("Ingresar", "Login", "Acceso")</li>
+                    <li>@Html.ActionLink("Registrarse", "Nuevorgistro", "Acceso")</li>
+                    <li>@Html.ActionLink("Cerrar Sesión","cerrarsesion","Acceso")</li>
+                </ul>
+            </nav>
+        </div>
+        @Session["username"]
+    </header>
+    @*<div class="ContenedorUser">
+        @Session["username"]
+        <br />
+        @Html.ActionLink("Cerar Sesión", "cerrarsesion", "Acceso")
+    </div>*@
+
+    <div id="main">
+        @RenderBody()
+
+        @*<footer class="footer">
+                <div class="container">
+                    Términos y Aviso de Privasidad
+                    2019-2020 MAXPRIME.COM,Inc. o afiliados
+                </div>
+            </footer>*@
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            Términos y Aviso de Privasidad
+            2019-2020 MAXPRIME.COM,Inc. o afiliados
+        </div>
+
+
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<div class="ContenedorBuscador">
+
+    @Html.ActionLink("Añadir", "M_Peliculas", "MantenimientoPadre")
+    <div class="categoriasBuscar"><a href="#menu">Categorias</a></div>
+
+</div>
+
+<div class="menudepeli">
+    <nav id="menu">
+        <ul class="links">
+            <li><a><h4>Videos</h4></a></li>
+            <li>@Html.ActionLink("Electronicas", "Electronicas", "Video")</li>
+            <li>@Html.ActionLink("Reggae", "Reggae", "Video")</li>
+            <li>@Html.ActionLink("House", "House", "Video")</li>
+            <li>@Html.ActionLink("Rock", "Rock", "Video")</li>
+            <li>@Html.ActionLink("Rap y Hip Hop", "Rap", "Video")</li>
+        
+
+        </ul>
+    </nav>
+</div>

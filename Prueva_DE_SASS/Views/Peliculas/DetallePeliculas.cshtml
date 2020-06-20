@@ -1,0 +1,59 @@
+﻿@model Prueva_DE_SASS.Models.Peliculas
+
+<div class="ContenedorIMG_Peliculas">
+
+    @if (!string.IsNullOrEmpty(Model.Portada))
+    {
+        <img src="@Url.Content(Model.Portada)" alt="imagen" class="imagencliente" width="250" height="375" />
+    }
+
+</div>
+
+<div class="ContenedorDelTextoPelicula ">
+
+    <div class="Titulo font-weight-light">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="Protagonistas text-black-50">
+
+        @Html.DisplayFor(model => model.Director)
+    </div>
+
+    <div class="Secciones">
+        <label class="text-black-50">Minutos</label>  @Html.DisplayFor(model => model.Duracion)
+    </div>
+
+    <div class="Secciones">
+        <label class="text-black-50">Año:</label> @Html.DisplayFor(model => model.Fecha_Estreno)
+    </div>
+
+    <div class="Secciones">
+        <label class="text-black-50">Genero</label> @Prueva_DE_SASS.Clase.Class1.mostrargenero(Model.Cod_Genero)
+      
+
+    </div>
+
+    <div class="Secciones text-center">
+        <label class="text-black-50 ">Idioma</label> @Prueva_DE_SASS.Clase.Class1.mostraridioma(Model.Cod_Idioma)
+
+    </div>
+
+</div>
+<hr class="lineadpelicula" />
+<div class="Contenido text-justify">
+    <b>Sinopsis</b>
+    <div class="sinopsis">
+        @Html.DisplayFor(model => model.Descripcion)
+
+    </div>
+    <br />
+    <b>Actores</b>
+    <div class="">
+        @Html.DisplayFor(model => model.Actores)
+    </div>
+</div>
+
+<div class="btnalquilarpelicula">
+    <input type="submit" value="Alqulilar por @Html.DisplayFor(model => model.Precio) "/>
+</div>

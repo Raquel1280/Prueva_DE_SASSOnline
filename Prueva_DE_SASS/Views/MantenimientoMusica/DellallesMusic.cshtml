@@ -1,0 +1,88 @@
+﻿@model Prueva_DE_SASS.Models.Musica
+
+@{
+    ViewBag.Title = "DellallesMusic";
+}
+
+<h2>Detalles</h2>
+<h4>@Model.Nombre</h4>
+<hr />
+<dl class="dl-horizontal container">
+
+    <dt>
+        Titulo
+      
+    </dt>
+    <dd>
+        <div class="panel panel-default">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+    </dd>
+
+    <dt>
+        Artista
+    </dt>
+
+    <dd>
+        <div class="panel panel-default">
+
+            @Html.DisplayFor(model => model.Artista)
+        </div>
+    </dd>
+
+
+    <dd>
+
+        <table class="table">
+
+
+            <tr>
+                <th>Tiempo de duracion </th>
+                <th>Fecha en que se estreno </th>
+                <th>Precio de alquiler </th>
+
+                <th>Imagen </th>
+                <th> Genero </th>
+                <th>Idioma</th>
+
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Duracion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Fecha_Estreno)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Precio)
+
+                </td>
+
+                <td>
+                    <div class="tamano">
+                        @if (!string.IsNullOrEmpty(Model.Portada))
+                        {
+                            <img src="@Url.Content(Model.Portada)" alt="imagen" />
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Prueva_DE_SASS.Clase.Class1.generoMusicVideo(Model.Cod_Genero)
+                </td>
+                <td>
+
+                    @Prueva_DE_SASS.Clase.Class1.mostraridioma(Model.Cod_Idioma)
+
+                </td>
+
+            </tr>
+
+        </table>
+    </dd>
+</dl>
+<hr />
+<p>
+    @Html.ActionLink("Editar", "EditarMusic", new { Cod_Musica = Model.Cod_Musica })
+    @Html.ActionLink("Atras", "IndexMusica")
+</p>

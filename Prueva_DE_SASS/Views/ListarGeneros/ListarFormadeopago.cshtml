@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Prueva_DE_SASS.Models.Forma_D_Pago>
+
+    <select class="form-control" id="Cod_Pago" name="Cod_Pago">
+
+        @foreach (var item in Model)
+        {
+            //usamos codogo raizor para listar todos los generos que estan alojados ne mi tabla GeneroPelicula
+            //tambien
+
+            //Nota  con el @item.Cod_Genero enviara el codigo y CON EL @item.Genero Nos mostrara el nombre
+            <option value="@item.Cod_Pago"> @item.Pago</option>
+
+        }
+
+
+    </select>

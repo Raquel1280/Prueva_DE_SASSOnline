@@ -1,0 +1,53 @@
+﻿@model Prueva_DE_SASS.Models.Videos
+
+<div class="contenedrodetalleimagen">
+
+    @if (!string.IsNullOrEmpty(Model.Portada))
+    {
+        <img src="@Url.Content(Model.Portada)" alt="imagen" class="imagencliente" />
+    }
+
+
+    <div class="contenedortextodetalle">
+
+        <div class="nombrepelicula font-weight-light">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+        <div class="nombreartista text-black-50">
+
+            @Html.DisplayFor(model => model.Artista)
+        </div>
+        <div class="otros">
+            <label class="text-black-50">Minutos</label>  @Html.DisplayFor(model => model.Duracion)
+
+        </div>
+        <div class="otros">
+            <label class="text-black-50">Año:</label> @Html.DisplayFor(model => model.Fecha_Estreno)
+        </div>
+
+        <div class="otros">
+            <label class="text-black-50">Genero</label>  @Prueva_DE_SASS.Clase.Class1.generoMusicVideo(Model.Cod_Genero)
+
+        </div>
+
+        <div class="otros">
+            <label class="text-black-50">Idioma: </label>  @Prueva_DE_SASS.Clase.Class1.mostraridioma(Model.Cod_Idioma)
+        </div>
+
+    </div>
+
+    <div>
+        <input type="submit" value="Alqulilar @Html.DisplayFor(model => model.Precio)" class="botondetallecliente" />
+    </div>
+
+</div>
+
+
+
+<div class="mostrarmusicas">
+
+
+    @Html.DisplayFor(model => model.Artista)
+
+
+</div>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6629235429ca49c1978e7cb3c4bc4027" Name="Diagram1">
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Dias_A_Rentar" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Forma_D_Pago" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Genero_Vid_Music" Width="1.5" PointX="3.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.GeneroPelicula" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Idioma" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Modulo" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Musica" Width="1.5" PointX="6" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Operaciones" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Peliculas" Width="1.5" PointX="9" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Renta_Usuario_Musica" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Renta_Usuario_Peliculas" Width="1.5" PointX="11.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Renta_Usuario_Videos" Width="1.5" PointX="8.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Rol" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Rol_Operaciones" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Usuarios" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Servicio_OnlineModel.Videos" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_diasrenta" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_diasrenta1" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_diasrenta2" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.FK_Forma_D_Pago" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Genero_Vid_Music2" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Genero_Vid_Music3" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_GeneroPelicula" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Idioma" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Idioma2" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Idioma3" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_music1" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_Operaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_peli3" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_usu1" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_usu3" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_usu2" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_video2" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.FK_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="Servicio_OnlineModel.fk_rool" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

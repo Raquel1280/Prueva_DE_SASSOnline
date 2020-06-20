@@ -1,0 +1,35 @@
+﻿<div class="ContenedorBuscador">
+
+    @*@Html.ActionLink("Añadir", "Index", "Mantenimiento") este es el verdadero*@
+
+    @Html.ActionLink("Añadir", "M_Peliculas", "MantenimientoPadre")
+
+    <div class="categoriasBuscar"><a href="#menu">Categorias</a></div>
+
+</div>
+
+<div class="menudepeli">
+    <nav id="menu">
+        <ul class="links">
+            <li><a><h4>Peliculas</h4></a></li>
+            @*<li>@Html.ActionLink("Principal", "IndexPrincipal", "Video")</li>*@
+            <li>@Html.ActionLink("Acción", "Accion", "Peliculas")</li>
+            <li>@Html.ActionLink("Aventura", "Aventura", "Peliculas")</li>
+            <li>@Html.ActionLink("Comedia", "Comedia", "Peliculas")</li>
+            <li>@Html.ActionLink("Dramá", "Drama", "Peliculas")</li>
+            <li>@Html.ActionLink("Terror", "Terror", "Peliculas")</li>
+            <li>@Html.ActionLink("Ciencia ficción", "Ciencia_Ficcion", "Peliculas")</li>
+            <li>@Html.ActionLink("Guerras", "Guerras", "Peliculas")</li>
+            <li>@Html.ActionLink("Crimen(Suspenso)", "Crimen", "Musica")</li>
+            <li>@Html.ActionLink("Infantiles", "Familiar", "Peliculas")</li>
+            <li>@Html.ActionLink("Adultos", "Adultos", "Musica")</li>
+            <li>@Html.ActionLink("Romanticas", "Romanticas", "Peliculas")</li>
+            <li>@Html.ActionLink("Musicales", "Musicales", "Musica")</li>
+            <li>@Html.ActionLink("Épicas", "Épicas", "Musica")</li>
+            <li>@Html.ActionLink("Suspenso", "Suspenso", "Musica")</li>
+            <li>@Html.ActionLink("Fantasia", "Fantasia", "Peliculas")</li>
+            <li>@Html.ActionLink("Documentales", "Documentales", "Musica")</li>
+        </ul>
+    </nav>
+</div>
+ 

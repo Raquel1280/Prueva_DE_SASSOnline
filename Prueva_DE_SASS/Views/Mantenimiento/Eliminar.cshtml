@@ -1,0 +1,128 @@
+﻿@model Prueva_DE_SASS.Models.Peliculas
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Peliculas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreGeneropelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreGeneropelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreIdiomapelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreIdiomapelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Pelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Pelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Estreno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Estreno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Portada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Portada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Idioma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Idioma)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>
